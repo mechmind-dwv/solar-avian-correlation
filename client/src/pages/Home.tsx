@@ -3,7 +3,7 @@ import { trpc } from "@/lib/trpc";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { Loader2, Sun, Bird, Activity, AlertTriangle, Star, ChevronDown, ChevronUp, BookOpen, Clock } from "lucide-react";
+import { Loader2, Sun, Bird, Activity, AlertTriangle, Star, ChevronDown, ChevronUp, BookOpen, Clock, Microscope, Heart } from "lucide-react";
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Area, ComposedChart } from 'recharts';
 
 export default function Home() {
@@ -250,13 +250,25 @@ export default function Home() {
                   <Button variant="outline" size="sm" asChild className="w-full">
                     <a href="/timeline">
                       <Clock className="w-4 h-4 mr-2" />
-                      Ver Línea de Tiempo Interactiva
+                      Línea de Tiempo
                     </a>
                   </Button>
                   <Button variant="outline" size="sm" asChild className="w-full">
                     <a href="/resources">
                       <BookOpen className="w-4 h-4 mr-2" />
-                      Ver Recursos y Obras Completas
+                      Recursos Educativos
+                    </a>
+                  </Button>
+                  <Button variant="outline" size="sm" asChild className="w-full">
+                    <a href="/methodology">
+                      <Microscope className="w-4 h-4 mr-2" />
+                      Metodología Científica
+                    </a>
+                  </Button>
+                  <Button variant="outline" size="sm" asChild className="w-full">
+                    <a href="/action">
+                      <Heart className="w-4 h-4 mr-2" />
+                      Llamado a la Acción
                     </a>
                   </Button>
                 </div>
