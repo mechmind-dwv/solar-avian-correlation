@@ -91,3 +91,15 @@
 - [x] Crear página dedicada de bibliografía y fuentes
 - [x] Agregar glosario de términos heliobiológicos
 - [ ] Incluir timeline de vida de Chizhevsky con eventos clave
+
+
+### Línea de Tiempo Interactiva
+
+- [x] Crear página Timeline.tsx con datos de vida de Chizhevsky
+- [x] Sincronizar hitos biográficos con ciclos solares (1897-1973)
+- [x] Implementar visualización de gráfico de línea temporal
+- [x] Agregar tooltips interactivos con detalles de eventos
+- [x] Mostrar actividad solar (manchas solares) en paralelo
+- [x] Implementar filtros por tipo de evento
+- [x] Agregar animaciones suaves
+- [x] Crear ruta /timeline en App.tsx

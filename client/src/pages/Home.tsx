@@ -3,7 +3,7 @@ import { trpc } from "@/lib/trpc";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { Loader2, Sun, Bird, Activity, AlertTriangle, Star, ChevronDown, ChevronUp, BookOpen } from "lucide-react";
+import { Loader2, Sun, Bird, Activity, AlertTriangle, Star, ChevronDown, ChevronUp, BookOpen, Clock } from "lucide-react";
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Area, ComposedChart } from 'recharts';
 
 export default function Home() {
@@ -246,8 +246,14 @@ export default function Home() {
                   </AlertDescription>
                 </Alert>
 
-                <div className="mt-4 pt-4 border-t border-border">
-                  <Button variant="outline" size="sm" asChild>
+                <div className="mt-4 pt-4 border-t border-border space-y-2">
+                  <Button variant="outline" size="sm" asChild className="w-full">
+                    <a href="/timeline">
+                      <Clock className="w-4 h-4 mr-2" />
+                      Ver Línea de Tiempo Interactiva
+                    </a>
+                  </Button>
+                  <Button variant="outline" size="sm" asChild className="w-full">
                     <a href="/resources">
                       <BookOpen className="w-4 h-4 mr-2" />
                       Ver Recursos y Obras Completas
