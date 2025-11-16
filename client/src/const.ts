@@ -19,3 +19,32 @@ export const getLoginUrl = () => {
 
   return url.toString();
 };
+
+/**
+ * Project information
+ */
+export const PROJECT_INFO = {
+  title: "Heliobiology: Solar-Avian Flu Correlation Platform",
+  subtitle: "En honor a Alexander Leonidovich Chizhevsky (1897-1964)",
+  description: "Plataforma interactiva que explora la correlación entre actividad solar y brotes de gripe aviar H5N1, validando el legado científico de Alexander Chizhevsky.",
+  chizhevsky: {
+    name: "Alexander Leonidovich Chizhevsky",
+    years: "1897-1964",
+    title: "Fundador de la Heliobiología",
+    quote: "El pulso de la vida en la Tierra late al ritmo del Sol",
+    quoteYear: 1922
+  },
+  dataSources: [
+    "SILSO (Sunspot Index and Long-term Solar Observations)",
+    "World Health Organization (WHO)",
+    "World Organisation for Animal Health (WOAH/OIE)",
+    "US Department of Agriculture (USDA)",
+    "NASA Solar Dynamics Observatory",
+    "NOAA Space Weather Prediction Center"
+  ],
+  dataRange: {
+    solarCycles: "1755-2024 (270 años)",
+    h5n1Outbreaks: "2008-2024 (16 años)",
+    historicalPandemics: "1889-2024 (135 años)"
+  }
+};

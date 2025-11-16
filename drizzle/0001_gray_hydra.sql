@@ -1,0 +1,61 @@
+CREATE TABLE `h5n1_outbreaks` (
+	`id` int AUTO_INCREMENT NOT NULL,
+	`date` varchar(10) NOT NULL,
+	`year` int NOT NULL,
+	`month` int NOT NULL,
+	`solar_cycle` int NOT NULL,
+	`solar_phase` varchar(50) NOT NULL,
+	`region` varchar(100) NOT NULL,
+	`countries` text,
+	`intensity` int NOT NULL,
+	`birds_affected` int,
+	`species` text,
+	`human_cases` int DEFAULT 0,
+	`human_deaths` int DEFAULT 0,
+	`kp_avg` int,
+	`kp_max` int,
+	`geomag_storm` varchar(200),
+	`description` text NOT NULL,
+	`source` varchar(200),
+	`chizhevsky_note` text,
+	`correlation` int DEFAULT 0,
+	`critical_event` int DEFAULT 0,
+	`exception` int DEFAULT 0,
+	`created_at` timestamp NOT NULL DEFAULT (now()),
+	CONSTRAINT `h5n1_outbreaks_id` PRIMARY KEY(`id`)
+);
+--> statement-breakpoint
+CREATE TABLE `historical_pandemics` (
+	`id` int AUTO_INCREMENT NOT NULL,
+	`name` varchar(200) NOT NULL,
+	`year` int NOT NULL,
+	`solar_cycle` int,
+	`solar_phase` varchar(50),
+	`sunspot_number` int,
+	`deaths` int,
+	`description` text,
+	`chizhevsky_note` text,
+	`created_at` timestamp NOT NULL DEFAULT (now()),
+	CONSTRAINT `historical_pandemics_id` PRIMARY KEY(`id`)
+);
+--> statement-breakpoint
+CREATE TABLE `solar_cycles` (
+	`id` int AUTO_INCREMENT NOT NULL,
+	`cycle_number` int NOT NULL,
+	`start_date` varchar(10) NOT NULL,
+	`end_date` varchar(10),
+	`duration_months` int,
+	`duration_years` varchar(10),
+	`maximum_date` varchar(10),
+	`max_sunspot_number` int,
+	`min_sunspot_number` int,
+	`amplitude` int,
+	`cycle_strength` varchar(50),
+	`notes` text,
+	`historical_events` text,
+	`chizhevsky_note` text,
+	`climate` text,
+	`created_at` timestamp NOT NULL DEFAULT (now()),
+	CONSTRAINT `solar_cycles_id` PRIMARY KEY(`id`),
+	CONSTRAINT `solar_cycles_cycle_number_unique` UNIQUE(`cycle_number`)
+);
