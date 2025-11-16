@@ -3,7 +3,7 @@ import { trpc } from "@/lib/trpc";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { Loader2, Sun, Bird, Activity, AlertTriangle, Star, ChevronDown, ChevronUp } from "lucide-react";
+import { Loader2, Sun, Bird, Activity, AlertTriangle, Star, ChevronDown, ChevronUp, BookOpen } from "lucide-react";
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Area, ComposedChart } from 'recharts';
 
 export default function Home() {
@@ -189,24 +189,55 @@ export default function Home() {
                   cuyo trabajo revolucionario estableció las bases de la <strong>heliobiología</strong> — la ciencia que estudia
                   la influencia de la actividad solar sobre los procesos biológicos terrestres.
                 </p>
+                
+                <div className="space-y-3">
+                  <h4 className="font-semibold text-primary text-base">Sus Primeros Experimentos (1915-1917)</h4>
+                  <p className="text-sm">
+                    En el verano de 1915, Chizhevsky comenzó a observar el Sol usando el poderoso <strong>telescopio Secretana</strong>,
+                    bajo la guía del profesor Sergey Nikolaevich Blazhko. Durante 8 meses, registró meticulosamente cambios en su propio
+                    cuerpo y distribuyó 25 cuestionarios a conocidos, sin revelarles el propósito. Cuando comparó los datos con la
+                    actividad solar, quedó asombrado: <strong>¡la coincidencia de los picos de las curvas resultó increíble!</strong>
+                  </p>
+                  <p className="text-sm">
+                    Trabajando en el <strong>Instituto Arqueológico de Moscú</strong> (1914-1917), descifró crónicas antiguas rusas,
+                    árabes, armenias y europeas que documentaban la simultaneidad de fenómenos solares y terrestres a lo largo de siglos.
+                  </p>
+                </div>
+
                 <div className="grid md:grid-cols-2 gap-4 mt-4">
                   <div className="space-y-2">
                     <h4 className="font-semibold text-primary">Su Descubrimiento</h4>
                     <p className="text-sm">
                       Analizando <strong>2,500 años de historia</strong> (500 a.C. - 1900 d.C.), Chizhevsky encontró que
                       el <strong>80% de eventos históricos significativos</strong> (guerras, revoluciones, epidemias)
-                      ocurrieron durante máximos solares.
+                      ocurrieron durante máximos solares. En 1924 publicó su trabajo fundacional "Physical Factors of the Historical Process".
                     </p>
                   </div>
                   <div className="space-y-2">
                     <h4 className="font-semibold text-destructive">Su Persecución</h4>
                     <p className="text-sm">
-                      En 1942 fue arrestado bajo falsas acusaciones. Pasó <strong>8 años en campos de trabajo forzado</strong>
-                      en las minas de uranio de los Urales, seguidos de exilio en Kazajistán. Murió en 1964, olvidado por
-                      la comunidad científica occidental.
+                      En 1942 fue arrestado bajo <strong>falsas acusaciones</strong>. Pasó <strong>8 años en campos de trabajo forzado</strong>
+                      en las minas de uranio de los Urales, seguidos de exilio en Kazajistán. Su nombre fue borrado de la ciencia durante décadas.
+                      Murió en 1964, olvidado por la comunidad científica occidental.
                     </p>
                   </div>
                 </div>
+
+                <div className="space-y-3 mt-4">
+                  <h4 className="font-semibold text-green-400 text-base">Rehabilitación y Reconocimiento (1962-1973)</h4>
+                  <p className="text-sm">
+                    En <strong>1962 fue rehabilitado</strong>, pero el daño estaba hecho. Tras su muerte en 1964, el desarrollo de la
+                    astronáutica soviética requería conocimientos de biología espacial. <strong>Sergey Korolev</strong> (padre del programa
+                    espacial soviético) contribuyó a la creación del <strong>Instituto de Problemas Médicos y Biológicos (IMBP)</strong>.
+                  </p>
+                  <p className="text-sm">
+                    <strong>O.G. Gazenko</strong>, director del IMBP y fundador de la medicina espacial, reconoció que Chizhevsky había
+                    demostrado científicamente la influencia solar en la biosfera e incluyó el espacio exterior en las condiciones de
+                    existencia humana. En 1973 se publicó póstumamente "Eco terrestre de las tormentas solares", definido como el
+                    <strong> "Manifiesto de las Ciencias Naturales Cósmicas"</strong>.
+                  </p>
+                </div>
+                
                 <Alert className="border-accent/50 bg-accent/5">
                   <Activity className="h-4 w-4" />
                   <AlertTitle>Su Legado</AlertTitle>
@@ -214,6 +245,15 @@ export default function Home() {
                     <em>"El pulso de la vida en la Tierra late al ritmo del Sol"</em> — A.L. Chizhevsky, 1922
                   </AlertDescription>
                 </Alert>
+
+                <div className="mt-4 pt-4 border-t border-border">
+                  <Button variant="outline" size="sm" asChild>
+                    <a href="/resources">
+                      <BookOpen className="w-4 h-4 mr-2" />
+                      Ver Recursos y Obras Completas
+                    </a>
+                  </Button>
+                </div>
               </CardContent>
             )}
           </Card>

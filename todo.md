@@ -75,3 +75,19 @@
 - [ ] Compresión de datos JSON
 - [ ] SEO y metadatos
 - [ ] Accesibilidad (ARIA labels, contraste)
+
+
+### Mejoras Basadas en Nuevos Materiales
+
+- [x] Agregar sección de recursos educativos con enlaces a obras de Chizhevsky
+- [x] Incluir enlace al libro completo de 1938 (gorbanev.com)
+- [x] Agregar referencias a trabajos modernos que validan a Chizhevsky
+- [x] Mejorar biografía con detalles sobre sus experimentos de 1915-1917
+- [x] Agregar información sobre su trabajo en el Instituto Arqueológico de Moscú
+- [x] Incluir mención de sus observaciones con telescopio Secretana
+- [x] Agregar sección sobre su rehabilitación en 1962
+- [x] Incluir reconocimiento de S.P. Korolev y O.G. Gazenko
+- [x] Agregar mención del Instituto de Problemas Médicos y Biológicos (IMBP)
+- [x] Crear página dedicada de bibliografía y fuentes
+- [x] Agregar glosario de términos heliobiológicos
+- [ ] Incluir timeline de vida de Chizhevsky con eventos clave
