@@ -9,11 +9,13 @@ import Resources from "./pages/Resources";
 import Timeline from "./pages/Timeline";
 import Methodology from "./pages/Methodology";
 import Action from "./pages/Action";
+import Research from "./pages/Research";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
   return (    <Switch>
-      <Route path={"/"} component={Home} />
+      <Route path={"/"} component={Research} />
+      <Route path={"/home"} component={Home} />
       <Route path={"/resources"} component={Resources} />
       <Route path={"/timeline"} component={Timeline} />
       <Route path={"/methodology"} component={Methodology} />
