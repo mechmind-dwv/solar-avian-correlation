@@ -4,9 +4,11 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ComposedChart, Area } from 'recharts';
-import { AlertTriangle, Zap, Activity, TrendingUp, Download, Filter } from "lucide-react";
+import { AlertTriangle, Zap, Activity, TrendingUp, Download, Filter, Map as MapIcon } from "lucide-react";
+import { useLocation } from 'wouter';
 
 export default function Research() {
+  const [, navigate] = useLocation();
   const [selectedIntensity, setSelectedIntensity] = useState<string>('all');
   const [dateRange, setDateRange] = useState({ start: '2008', end: '2024' });
 
@@ -313,6 +315,28 @@ export default function Research() {
             </Card>
           </TabsContent>
         </Tabs>
+
+        {/* Mapa Geográfico */}
+        <Card className="mt-8 bg-card border-border">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <MapIcon className="w-5 h-5" />
+              Análisis Geográfico
+            </CardTitle>
+            <CardDescription>
+              Visualiza la correlación entre brotes H5N1 y tormentas geomagnéticas por región
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Button 
+              onClick={() => navigate('/map')}
+              className="w-full bg-primary hover:bg-primary/90"
+            >
+              <MapIcon className="w-4 h-4 mr-2" />
+              Abrir Mapa Interactivo
+            </Button>
+          </CardContent>
+        </Card>
 
         {/* Descarga de Datos */}
         <Card className="mt-8 bg-card border-border">
