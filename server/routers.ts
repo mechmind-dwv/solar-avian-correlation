@@ -176,6 +176,46 @@ export const appRouter = router({
       }
     }),
   }),
+
+  // H5N1 Map Research Router - Consultas para visualización en mapa
+  h5n1Map: router({
+    getMapOutbreaks: publicProcedure.query(async () => {
+      const { getH5N1MapOutbreaks } = await import('./db');
+      return await getH5N1MapOutbreaks();
+    }),
+    
+    getOutbreaksByCountry: publicProcedure
+      .input((input: unknown) => {
+        if (typeof input !== 'string') throw new Error('Country must be a string');
+        return input;
+      })
+      .query(async ({ input }) => {
+        const { getH5N1MapOutbreaksByCountry } = await import('./db');
+        return await getH5N1MapOutbreaksByCountry(input);
+      }),
+    
+    getOutbreaksByType: publicProcedure
+      .input((input: unknown) => {
+        if (typeof input !== 'string') throw new Error('Type must be a string');
+        return input;
+      })
+      .query(async ({ input }) => {
+        const { getH5N1MapOutbreaksByType } = await import('./db');
+        return await getH5N1MapOutbreaksByType(input);
+      }),
+    
+    getOutbreaksByDateRange: publicProcedure
+      .input((input: unknown) => {
+        if (typeof input === 'object' && input !== null && 'startDate' in input && 'endDate' in input) {
+          return input as { startDate: string; endDate: string };
+        }
+        throw new Error('Must provide startDate and endDate');
+      })
+      .query(async ({ input }) => {
+        const { getH5N1MapOutbreaksByDateRange } = await import('./db');
+        return await getH5N1MapOutbreaksByDateRange(input.startDate, input.endDate);
+      }),
+  }),
 });
 
 export type AppRouter = typeof appRouter;

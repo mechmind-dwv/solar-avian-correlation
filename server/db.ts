@@ -1,6 +1,6 @@
-import { eq } from "drizzle-orm";
+import { eq, sql } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
-import { InsertUser, users } from "../drizzle/schema";
+import { InsertUser, users, h5n1MapOutbreaks } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
 let _db: ReturnType<typeof drizzle> | null = null;
@@ -255,4 +255,62 @@ export async function insertHistoricalPandemics(pandemics: any[]) {
   }
   
   return inserted;
+}
+
+
+// Queries para brotes H5N1 con coordenadas GPS (para mapa)
+export async function getH5N1MapOutbreaks() {
+  const db = await getDb();
+  if (!db) return [];
+  
+  try {
+    return await db.select().from(h5n1MapOutbreaks).orderBy(h5n1MapOutbreaks.date);
+  } catch (error) {
+    console.error("[Database] Error fetching H5N1 map outbreaks:", error);
+    return [];
+  }
+}
+
+export async function getH5N1MapOutbreaksByCountry(country: string) {
+  const db = await getDb();
+  if (!db) return [];
+  
+  try {
+    return await db.select().from(h5n1MapOutbreaks)
+      .where(eq(h5n1MapOutbreaks.country, country))
+      .orderBy(h5n1MapOutbreaks.date);
+  } catch (error) {
+    console.error("[Database] Error fetching outbreaks by country:", error);
+    return [];
+  }
+}
+
+export async function getH5N1MapOutbreaksByType(type: string) {
+  const db = await getDb();
+  if (!db) return [];
+  
+  try {
+    return await db.select().from(h5n1MapOutbreaks)
+      .where(eq(h5n1MapOutbreaks.outbreakType, type))
+      .orderBy(h5n1MapOutbreaks.date);
+  } catch (error) {
+    console.error("[Database] Error fetching outbreaks by type:", error);
+    return [];
+  }
+}
+
+export async function getH5N1MapOutbreaksByDateRange(startDate: string, endDate: string) {
+  const db = await getDb();
+  if (!db) return [];
+  
+  try {
+    return await db.select().from(h5n1MapOutbreaks)
+      .where(
+        sql`${h5n1MapOutbreaks.date} >= ${startDate} AND ${h5n1MapOutbreaks.date} <= ${endDate}`
+      )
+      .orderBy(h5n1MapOutbreaks.date);
+  } catch (error) {
+    console.error("[Database] Error fetching outbreaks by date range:", error);
+    return [];
+  }
 }

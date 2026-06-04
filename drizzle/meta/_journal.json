@@ -15,6 +15,13 @@
       "when": 1763300152594,
       "tag": "0001_gray_hydra",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1780614034157,
+      "tag": "0002_sour_tana_nile",
+      "breakpoints": true
     }
   ]
 }

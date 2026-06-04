@@ -102,3 +102,25 @@ export const historicalPandemics = mysqlTable("historical_pandemics", {
 
 export type HistoricalPandemic = typeof historicalPandemics.$inferSelect;
 export type InsertHistoricalPandemic = typeof historicalPandemics.$inferInsert;
+
+
+/**
+ * Brotes H5N1 con coordenadas geográficas para visualización en mapa
+ * Datos históricos desde 1997 de OMS, FAO y EMPRES-i
+ */
+export const h5n1MapOutbreaks = mysqlTable("h5n1_map_outbreaks", {
+  id: int("id").autoincrement().primaryKey(),
+  country: varchar("country", { length: 100 }).notNull(),
+  date: varchar("date", { length: 10 }).notNull(),
+  cases: int("cases").default(0),
+  latitude: varchar("latitude", { length: 20 }).notNull(),
+  longitude: varchar("longitude", { length: 20 }).notNull(),
+  intensity: int("intensity").notNull(), // 1-10 scale
+  species: varchar("species", { length: 200 }),
+  outbreakType: varchar("outbreak_type", { length: 50 }).notNull(), // 'Human' or 'Animal'
+  source: varchar("source", { length: 200 }),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+export type H5N1MapOutbreak = typeof h5n1MapOutbreaks.$inferSelect;
+export type InsertH5N1MapOutbreak = typeof h5n1MapOutbreaks.$inferInsert;
